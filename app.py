@@ -46,99 +46,99 @@ def home():
         </tr>
         """
 
-        return f"""
-        
-    <html>
-    <head>
+    return f"""
 
-    <title>Estação Meteorológica IoT</title>
+<html>
+<head>
 
-    <style>
+<title>Estação Meteorológica IoT</title>
 
-    body {{
-        background: #1e293b;
-        color: white;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        margin-top: 50px;
-    }}
+<style>
 
-    .card {{
-        background: #334155;
-        width: 500px;
-        margin: auto;
-        padding: 30px;
-        border-radius: 20px;
-        box-shadow: 0 0 20px rgba(0,0,0,0.4);
-    }}
+body {{
+background: #1e293b;
+color: white;
+font-family: Arial, sans-serif;
+text-align: center;
+margin-top: 50px;
+}}
 
-    .valor {{
-        font-size: 50px;
-        font-weight: bold;
-    }}
+.card {{
+background: #334155;
+width: 500px;
+margin: auto;
+padding: 30px;
+border-radius: 20px;
+box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}}
 
-    .titulo {{
-        font-size: 20px;
-        color: #cbd5e1;
-    }}
+.valor {{
+font-size: 50px;
+font-weight: bold;
+}}
 
-    </style>
+.titulo {{
+font-size: 20px;
+color: #cbd5e1;
+}}
 
-    </head>
+</style>
 
-    <body>
+</head>
 
-    <div class="card">
+<body>
 
-    <h1>🌤 Estação Meteorológica IoT</h1>
+<div class="card">
 
-    <br>
+<h1>🌤 Estação Meteorológica IoT</h1>
 
-    <div class="titulo">
-    🌡 Temperatura
-    </div>
+<br>
 
-    <div class="valor">
-    {temperatura} °C
-    </div>
+<div class="titulo">
+🌡 Temperatura
+</div>
 
-    <br>
+<div class="valor">
+{temperatura} °C
+</div>
 
-    <div class="titulo">
-    💧 Umidade
-    </div>
+<br>
 
-    <div class="valor">
-    {umidade} %
-    </div>
+<div class="titulo">
+💧 Umidade
+</div>
 
-    <br><br>
+<div class="valor">
+{umidade} %
+</div>
 
-    <p>✅ ESP32 Online</p>
+<br><br>
 
-    <hr>
+<p>✅ ESP32 Online</p>
 
-    <h3>📜 Últimas Leituras</h3>
+<hr>
 
-    <table style="width:100%; color:white;">
+<h3>📜 Últimas Leituras</h3>
 
-    <tr>
-        <th>Temperatura</th>
-        <th>Umidade</th>
-        <th>Data/Hora</th>
-    </tr>
+<table style="width:100%; color:white;">
 
-    {historico}
+<tr>
+<th>Temperatura</th>
+<th>Umidade</th>
+<th>Data/Hora</th>
+</tr>
 
-    </table>
+{historico}
+
+</table>
 
 
-    </div>
+</div>
 
-    </body>
+</body>
 
-    </html>
-    """
+</html>
+"""
 
 
 @app.route("/dados")
