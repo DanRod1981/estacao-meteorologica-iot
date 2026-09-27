@@ -25,7 +25,29 @@ db.commit()
 @app.route("/")
 def home():
 
-    return f"""
+    cursor.execute("""
+    SELECT temperatura, umidade, datahora
+    FROM leituras
+    ORDER BY id DESC
+    LIMIT 5
+    """)
+
+    leituras = cursor.fetchall()
+
+    historico = ""
+
+    for temp, umi, datahora in leituras:
+
+        historico += f"""
+        <tr>
+            <td>{temp} °C</td>
+            <td>{umi} %</td>
+            <td>{datahora}</td>
+        </tr>
+        """
+
+        return f"""
+        
     <html>
     <head>
 
@@ -93,6 +115,23 @@ def home():
     <br><br>
 
     <p>✅ ESP32 Online</p>
+
+    <hr>
+
+    <h3>📜 Últimas Leituras</h3>
+
+    <table style="width:100%; color:white;">
+
+    <tr>
+        <th>Temperatura</th>
+        <th>Umidade</th>
+        <th>Data/Hora</th>
+    </tr>
+
+    {historico}
+
+    </table>
+
 
     </div>
 
