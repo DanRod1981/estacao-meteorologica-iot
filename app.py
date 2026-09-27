@@ -33,7 +33,11 @@ def home():
     """)
 
     leituras = cursor.fetchall()
+    
+    temperaturas = []
 
+    for temp, umi, datahora in reversed(leituras):
+        temperaturas.append(temp)   
     historico = ""
 
     for temp, umi, datahora in leituras:
@@ -119,6 +123,10 @@ color: #cbd5e1;
 <hr>
 
 <h3>📜 Últimas Leituras</h3>
+
+<h3>📈 Gráfico de Temperatura</h3>
+
+<canvas id="graficoTemperatura"></canvas>
 
 <table style="width:100%; color:white;">
 
