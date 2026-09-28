@@ -37,7 +37,10 @@ def home():
     temperaturas = []
 
     for temp, umi, datahora in reversed(leituras):
-        temperaturas.append(temp)   
+        temperaturas.append(temp)
+
+    dados_grafico = str(temperaturas)
+
     historico = ""
 
     for temp, umi, datahora in leituras:
@@ -142,6 +145,18 @@ color: #cbd5e1;
 
 
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const temperaturas = {dados_grafico};
+
+document.write("");
+
+console.log(temperaturas);
+
+</script>
 
 </body>
 
