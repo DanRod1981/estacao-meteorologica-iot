@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 import sqlite3
 from datetime import datetime
 
@@ -53,116 +53,13 @@ def home():
         </tr>
         """
 
-    return f"""
-
-<html>
-<head>
-
-<title>Estação Meteorológica IoT</title>
-
-<style>
-
-body {{
-background: #1e293b;
-color: white;
-font-family: Arial, sans-serif;
-text-align: center;
-margin-top: 50px;
-}}
-
-.card {{
-background: #334155;
-width: 500px;
-margin: auto;
-padding: 30px;
-border-radius: 20px;
-box-shadow: 0 0 20px rgba(0,0,0,0.4);
-}}
-
-.valor {{
-font-size: 50px;
-font-weight: bold;
-}}
-
-.titulo {{
-font-size: 20px;
-color: #cbd5e1;
-}}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="card">
-
-<h1>🌤 Estação Meteorológica IoT</h1>
-
-<br>
-
-<div class="titulo">
-🌡 Temperatura
-</div>
-
-<div class="valor">
-{temperatura} °C
-</div>
-
-<br>
-
-<div class="titulo">
-💧 Umidade
-</div>
-
-<div class="valor">
-{umidade} %
-</div>
-
-<br><br>
-
-<p>✅ ESP32 Online</p>
-
-<hr>
-
-<h3>📜 Últimas Leituras</h3>
-
-<h3>📈 Gráfico de Temperatura</h3>
-
-<canvas id="graficoTemperatura"></canvas>
-
-<table style="width:100%; color:white;">
-
-<tr>
-<th>Temperatura</th>
-<th>Umidade</th>
-<th>Data/Hora</th>
-</tr>
-
-{historico}
-
-</table>
-
-
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script>
-
-const temperaturas = {dados_grafico};
-
-document.write("");
-
-console.log(temperaturas);
-
-</script>
-
-</body>
-
-</html>
-"""
-
+    return render_template(
+    "index.html",
+    temperatura=temperatura,
+    umidade=umidade,
+    historico=historico,
+    dados_grafico=dados_grafico
+    )
 
 @app.route("/dados")
 def dados():
