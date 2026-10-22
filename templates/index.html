@@ -61,17 +61,15 @@
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <script>
-
-const temperaturas = {{dados_grafico}};
-
-document.write("");
-
-console.log(temperaturas);
-
+const temperaturas = {{ dados_grafico }};
 </script>
+
+<script src="{{ url_for('static', filename='js/grafico.js') }}">
+
+    
+</script>
+
 
 </body>
 
