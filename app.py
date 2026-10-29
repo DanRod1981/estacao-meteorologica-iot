@@ -35,11 +35,14 @@ def home():
     leituras = cursor.fetchall()
     
     temperaturas = []
+    umidades = []
 
     for temp, umi, datahora in reversed(leituras):
         temperaturas.append(temp)
+        umidades.append(umi)
 
     dados_grafico = str(temperaturas)
+    dados_umidade = str(umidades)
 
     historico = ""
 
@@ -58,7 +61,8 @@ def home():
     temperatura=temperatura,
     umidade=umidade,
     historico=historico,
-    dados_grafico=dados_grafico
+    dados_grafico=dados_grafico,
+    dados_umidade=dados_umidade
     )
 
 @app.route("/dados")

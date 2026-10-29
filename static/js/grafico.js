@@ -4,14 +4,24 @@ new Chart(ctx, {
     type: 'line',
     data: {
         labels: temperaturas.map((_, i) => i + 1),
-        datasets: [{
+        datasets: [
+        {
             label: 'Temperatura °C',
             data: temperaturas,
             borderColor: '#38bdf8',
             backgroundColor: 'rgba(56,189,248,0.2)',
             borderWidth: 2,
             tension: 0.3
-        }]
+        },
+        {
+            label: 'Umidade %',
+            data: umidades,
+            borderColor: '#22c55e',
+            backgroundColor: 'rgba(34,197,94,0.2)',
+            borderWidth: 2,
+            tension: 0.3
+        }
+        ]
     },
     options: {
         responsive: true
