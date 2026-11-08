@@ -33,6 +33,11 @@ async function atualizarGrafico() {
     const resposta = await fetch('/api/dados');
 
     const dados = await resposta.json();
+    document.getElementById('temperaturaAtual').innerText =
+    dados.temperatura + " °C";
+
+    document.getElementById('umidadeAtual').innerText =
+    dados.umidade + " %";
 
     grafico.data.labels =
         dados.temperaturas.map((_, i) => i + 1);
