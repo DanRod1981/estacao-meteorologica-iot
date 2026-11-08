@@ -21,7 +21,31 @@ CREATE TABLE IF NOT EXISTS leituras (
 """)
 
 db.commit()
+@app.route("/api/dados")
+def api_dados():
 
+    cursor.execute("""
+    SELECT temperatura, umidade, datahora
+    FROM leituras
+    ORDER BY id DESC
+    LIMIT 5
+    """)
+
+    leituras = cursor.fetchall()
+
+    temperaturas = []
+    umidades = []
+
+    for temp, umi, datahora in reversed(leituras):
+        temperaturas.append(temp)
+        umidades.append(umi)
+
+    return {
+        "temperatura": temperatura,
+        "umidade": umidade,
+        "temperaturas": temperaturas,
+        "umidades": umidades
+    }
 @app.route("/")
 def home():
 

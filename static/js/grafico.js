@@ -1,6 +1,6 @@
 const ctx = document.getElementById('graficoTemperatura');
 
-new Chart(ctx, {
+const grafico = new Chart(ctx, {
     type: 'line',
     data: {
         labels: temperaturas.map((_, i) => i + 1),
@@ -27,3 +27,23 @@ new Chart(ctx, {
         responsive: true
     }
 });
+
+async function atualizarGrafico() {
+
+    const resposta = await fetch('/api/dados');
+
+    const dados = await resposta.json();
+
+    grafico.data.labels =
+        dados.temperaturas.map((_, i) => i + 1);
+
+    grafico.data.datasets[0].data =
+        dados.temperaturas;
+
+    grafico.data.datasets[1].data =
+        dados.umidades;
+
+    grafico.update();
+}
+
+setInterval(atualizarGrafico, 5000);
