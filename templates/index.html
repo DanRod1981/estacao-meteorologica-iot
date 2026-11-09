@@ -16,35 +16,43 @@
 
 <br>
 
-<div class="titulo">
-🌡 Temperatura
-</div>
+<div class="painel-sensores">
 
-<div class="valor" id="temperaturaAtual">
-{{temperatura}} °C
-</div>
+    <div class="sensor-card">
+        <div class="titulo">
+            🌡 Temperatura
+        </div>
 
-<br>
+        <div class="valor" id="temperaturaAtual">
+            {{temperatura}} °C
+        </div>
+    </div>
 
-<div class="titulo">
-💧 Umidade
-</div>
+    <div class="sensor-card">
+        <div class="titulo">
+            💧 Umidade
+        </div>
 
-<div class="valor" id="umidadeAtual">
-{{umidade}} %
+        <div class="valor" id="umidadeAtual">
+            {{umidade}} %
+        </div>
+    </div>
+
 </div>
 
 <br><br>
 
-<p>✅ ESP32 Online</p>
+<p style="color:#22c55e;">
+🟢 ESP32 Online
+</p>
 
 <hr>
 
 <h3>📜 Últimas Leituras</h3>
 
-<h3>📈 Gráfico de Temperatura</h3>
+<h3>📊 Monitoramento em Tempo Real</h3>
 
-<canvas id="graficoTemperatura"></canvas>
+<canvas id="graficoTemperatura" height="120"></canvas>
 
 <table style="width:100%; color:white;">
 

@@ -1,7 +1,7 @@
 const ctx = document.getElementById('graficoTemperatura');
 
 const grafico = new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
         labels: temperaturas.map((_, i) => i + 1),
         datasets: [
@@ -23,9 +23,33 @@ const grafico = new Chart(ctx, {
         }
         ]
     },
-    options: {
-        responsive: true
+   options: {
+    responsive: true,
+
+    plugins: {
+        legend: {
+            labels: {
+                color: 'white',
+                font: {
+                    size: 14
+                }
+            }
+        }
+    },
+
+    scales: {
+        x: {
+            ticks: {
+                color: 'white'
+            }
+        },
+        y: {
+            ticks: {
+                color: 'white'
+            }
+        }
     }
+}
 });
 
 async function atualizarGrafico() {
